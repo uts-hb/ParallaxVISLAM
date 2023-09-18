@@ -48,7 +48,7 @@ switch Dataset;
         LocalMapNum = 10;
         Direction = '06_10/';
     case '07_2';
-        LocalMapNum = 2;`
+        LocalMapNum = 2;
         Direction = '07_2/';
     case '07_4';
         LocalMapNum = 4;
