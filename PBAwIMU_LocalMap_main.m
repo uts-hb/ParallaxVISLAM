@@ -10,13 +10,13 @@ load extinsic_kitti.mat;
 K = textread('calSBA_kitti.txt');
 
 %% Load preintegrated-IMU data 
-% Dataset = 'KITTI_06'; 
-Dataset = 'KITTI_07'; 
-% Dataset = 'KITTI_09'; 
+% Dataset = 'KITTI_06'; % 1~412
+Dataset = 'KITTI_07';  % 1~412
+% Dataset = 'KITTI_09'; % 1~677
 
 %% Number of Images 
 start_ImageNum = 1; 
-end_ImageNum = 20; 
+end_ImageNum = 50; 
 
 %%
 switch Dataset;

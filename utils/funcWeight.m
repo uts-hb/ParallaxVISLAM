@@ -40,6 +40,9 @@ for i = 1 : size(PVector.Pos,2)-1
     val_B = [val_B, diag(W_bg)',diag(W_ba)'];
 end
 
+W_ID1 = [W_BA_ID1, W_IMU_ID1, W_B_ID1];
+W_ID2 = [W_BA_ID2, W_IMU_ID2, W_B_ID2];
+
 switch Dataset;
     case 'KITTI_06';
         VAL = [val_BA, 10*val_IMU, 10*val_B]; % Best for dataset 06
