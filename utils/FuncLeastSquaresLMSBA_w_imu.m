@@ -1,5 +1,5 @@
 
-function [PVector,Reason,Info,obj_fun,PBA_ERROR,IMU_ERROR] = FuncLeastSquaresLMSBA_w_imu(xVector,PVector,Feature,K,extrinsic,pre_imu)
+function [PVector,Reason,Info,obj_fun,PBA_ERROR,IMU_ERROR] = FuncLeastSquaresLMSBA_w_imu(xVector,PVector,Feature,K,extrinsic,pre_imu,Dataset)
 
 nRowNum = length(xVector.PID);
 MaxIter = 5000;
@@ -35,7 +35,7 @@ ErrorPre = Error;
 
 [ID1,ID2,nJacobian] = FuncGetJacobianID_w_imu(xVector,PVector,Feature);
 [Jacobian] = FuncJacobian_w_imu(xVector,PVector,Feature,K,ID1,ID2,nJacobian,extrinsic,pre_imu);
-W = funcWeight(xVector,PVector,pre_imu); 
+W = funcWeight(xVector,PVector,pre_imu,Dataset); 
 
 A = Jacobian'*W*Jacobian;
 Lambda = t*max(diag(A));

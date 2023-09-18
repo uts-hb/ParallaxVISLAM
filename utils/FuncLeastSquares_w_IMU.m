@@ -1,4 +1,4 @@
-function [PVector,Reason,Info,obj_fun,PBA_ERROR,IMU_ERROR] = FuncLeastSquares_w_IMU(xVector,PVector,Feature,K,extrinsic,pre_imu)
+function [PVector,Reason,Info,obj_fun,PBA_ERROR,IMU_ERROR] = FuncLeastSquares_w_IMU(xVector,PVector,Feature,K,extrinsic,pre_imu,Dataset)
 
 %Initial Error
 obj_fun = []; 
@@ -22,7 +22,7 @@ MaxIter = 50;
 MinError = 1e-8;
 MinDelta = 1e-4;
 [ID1,ID2,nJacobian] = FuncGetJacobianID_w_imu(xVector,PVector,Feature);
-W = funcWeight(xVector,PVector,pre_imu); 
+W = funcWeight(xVector,PVector,pre_imu,Dataset); 
 Iter = 0;
 while Sum_Error>MinError && Sum_Delta>MinDelta && Iter<=MaxIter;
     [Jacobian] = FuncJacobian_w_imu(xVector,PVector,Feature,K,ID1,ID2,nJacobian,extrinsic,pre_imu);

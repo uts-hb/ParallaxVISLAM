@@ -13,15 +13,55 @@ DataType = '3D Pose Feature';
 % DataType = '2D Pose Graph';
 % DataType = '3D Pose Graph';
 
-    %% 3D Pose Feature Datasets
+    %% 3D Pose Feature Datasets 
 
-Dataset = '09_8';
-
+    %% KITTT Dataset Sequence 06, 07, 08 with differenent number of Local Map  
+Dataset = '06_2';
+% Dataset = '06_4';
+% Dataset = '06_6';
+% Dataset = '06_8';
+% Dataset = '06_10';
+% Dataset = '07_2';
+% Dataset = '07_4';
+% Dataset = '07_6';
+% Dataset = '07_8';
+% Dataset = '07_10';
+% Dataset = '09_2';
+% Dataset = '09_4';
+% Dataset = '09_6';
+% Dataset = '09_8';
 %% Direction and Local Map Number
 switch Dataset;
-    case 'KITTI_09';
+    case '06_2';
         LocalMapNum = 2;
-        Direction = 'KITTI_09/';
+        Direction = '06_2/';
+    case '06_4';
+        LocalMapNum = 4;
+        Direction = '06_4/';
+    case '06_6';
+        LocalMapNum = 6;
+        Direction = '06_6/';
+    case '06_8';
+        LocalMapNum = 8;
+        Direction = '06_8/';
+    case '06_10';
+        LocalMapNum = 10;
+        Direction = '06_10/';
+    case '07_2';
+        LocalMapNum = 2;`
+        Direction = '07_2/';
+    case '07_4';
+        LocalMapNum = 4;
+        Direction = '07_4/';
+    case '07_6';
+        LocalMapNum = 6;
+        Direction = '07_6/';
+    case '07_8';
+        LocalMapNum = 8;
+        Direction = '07_8/';
+    case '07_10';
+        LocalMapNum = 10;
+        Direction = '07_10/';
     case '09_2';
         LocalMapNum = 2;
         Direction = '09_2/';
@@ -33,10 +73,7 @@ switch Dataset;
         Direction = '09_6/';
     case '09_8';
         LocalMapNum = 8;
-        Direction = '09_8/';
-    case '09_10';
-        LocalMapNum = 10;
-        Direction = '09_10/';
+        Direction = '09_8/';        
 end;
 
 %% Load Files
@@ -74,7 +111,6 @@ switch Method;
         end;
 end
 
-
 toc
 diary off;
 %% Plot Result Figure
@@ -88,27 +124,6 @@ switch DataType;
     case '3D Pose Graph';
         [Pose] = FuncPlotFigure_PG3D(GMap);
 end;
-
-% figure(2); 
-% % plot3(Pose(:,2),Pose(:,3),Pose(:,4),'r--');
-% plot(Pose(:,2),Pose(:,3),'r-');
-% axis equal; grid on;hold on;
-% load compare_1_438.mat
-% plot(t_local1(1,:),t_local1(2,:),'g--');
-% plot(t_local2_to_1(1,:),t_local2_to_1(2,:),'k--');
-% plot(t_gt(1,:),t_gt(2,:), 'b--');
-% load local_map_1_438.mat
-% T_1_438_1 = [PVector.Rot{1,1},PVector.Pos(:,1);0 0 0 1];
-% t_1_438 = [];
-% for i = 1 : size(PVector.Rot,2)
-%     temp_T = inv(T_1_438_1)*[PVector.Rot{1,i},PVector.Pos(:,i);0 0 0 1];    
-%     t_1_438 = [t_1_438,temp_T(1:3,4)];
-% end 
-% plot(t_1_438(1,:),t_1_438(2,:),'c--');
-% legend('LinearSLAM', 'LocalMap1', 'LocalMap2', 'GT', 'FullBatch');
-
-% legend('LinearSLAM', 'LocalMap1', 'LocalMap2', 'GT');
-% legend('LinearSLAM', 'LocalMap1', 'LocalMap2');
 
 load extrinsic_kitti_0504.mat
 temp_R = eye(3,3)*cam2imu_R;
@@ -129,7 +144,6 @@ for i = 1 : size(Pose,1)
     LinearSLAM_traj = [LinearSLAM_traj;vector];
     rpg_LinearSLAM_traj = [rpg_LinearSLAM_traj;time_image(i,1),t_' ,q];
 end
-
 
 dlmwrite('LinearSLAM_traj_2808_09.txt',LinearSLAM_traj,'delimiter',' ')
 dlmwrite('rpg_LinearSLAM_traj_09.txt',rpg_LinearSLAM_traj,'delimiter',' ')
