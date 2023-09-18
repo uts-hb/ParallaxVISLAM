@@ -12,11 +12,14 @@ Our proposed Parallax Visual-Inertial SLAM and linear submap joining algorithms 
 
 To run Parallax VI-SLAM, **'PBAwIMU_LocalMap_main.m '** can be executed to build full-batch or local map. 
 
-Linear Map Joining can be executed with **"Main.m"** in LinearSLAM folder.                   
+Linear Map Joining can be executed with **"Main.m"** in LinearSLAM folder.      
+
+It can be plotted using rpg_trajectory_evaluation (https://github.com/uzh-rpg/rpg_trajectory_evaluation) [4].
                                 
 ----         
 ### References
 1. L. Zhao, S. Huang, Y. Sun, L. Yan, and G. Dissanayake, “ParallaxBA:Bundle adjustment using parallax angle feature parametrization,” International Journal of Robotics Research, vol. 34, no. 4-5, pp. 493–516, 4 2015
 2. L. Zhao, S. Huang, and G. Dissanayake, “Linear SLAM: Linearising the SLAM Problems using Submap Joining,” Automatica, vol. 100, pp.231–246, 9 2018. [Online]. Available: http://arxiv.org/abs/1809.06967
 3.  A. Geiger, P. Lenz, C. Stiller, and R. Urtasun, “Vision meets robotics: The kitti dataset,” The International Journal of Robotics Research, vol. 32, no. 11, pp. 1231–1237, 2013.
+4.  Z. Zhang and D. Scaramuzza, “A Tutorial on Quantitative Trajectory Evaluation for Visual(-Inertial) Odometry,” in IEEE International Conference on Intelligent Robots and Systems. Institute of Electrical and Electronics Engineers Inc., 12 2018, pp. 7244–7251.
 ----
