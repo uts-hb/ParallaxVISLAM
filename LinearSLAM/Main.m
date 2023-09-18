@@ -125,26 +125,26 @@ switch DataType;
         [Pose] = FuncPlotFigure_PG3D(GMap);
 end;
 
-load extrinsic_kitti_0504.mat
-temp_R = eye(3,3)*cam2imu_R;
-temp_t = zeros(3,1) + eye(3,3)*cam2imu_t';
-Pose = [0 0 0 0 0 0 0; Pose];
-LinearSLAM_traj = [];
-load time_image_2808_09.mat
-rpg_LinearSLAM_traj = [];
-for i = 1 : size(Pose,1)
-    vector=[];
-    R_ = eul2rotm(Pose(i,5:7))*cam2imu_R;
-    q = rotm2quat(R_);
-    q = [q(2:4),q(1)];
-    t_ = Pose(i,2:4)' + eul2rotm(Pose(i,5:7))*cam2imu_t';
-    for j=1:3
-        vector=[vector, R_(j,:), t_(j,1)];
-    end
-    LinearSLAM_traj = [LinearSLAM_traj;vector];
-    rpg_LinearSLAM_traj = [rpg_LinearSLAM_traj;time_image(i,1),t_' ,q];
-end
-
-dlmwrite('LinearSLAM_traj_2808_09.txt',LinearSLAM_traj,'delimiter',' ')
-dlmwrite('rpg_LinearSLAM_traj_09.txt',rpg_LinearSLAM_traj,'delimiter',' ')
+% load extrinsic_kitti.mat
+% temp_R = eye(3,3)*cam2imu_R;
+% temp_t = zeros(3,1) + eye(3,3)*cam2imu_t';
+% Pose = [0 0 0 0 0 0 0; Pose];
+% LinearSLAM_traj = [];
+% load time_image_09.mat
+% rpg_LinearSLAM_traj = [];
+% for i = 1 : size(Pose,1)
+%     vector=[];
+%     R_ = eul2rotm(Pose(i,5:7))*cam2imu_R;
+%     q = rotm2quat(R_);
+%     q = [q(2:4),q(1)];
+%     t_ = Pose(i,2:4)' + eul2rotm(Pose(i,5:7))*cam2imu_t';
+%     for j=1:3
+%         vector=[vector, R_(j,:), t_(j,1)];
+%     end
+%     LinearSLAM_traj = [LinearSLAM_traj;vector];
+%     rpg_LinearSLAM_traj = [rpg_LinearSLAM_traj;time_image(i,1),t_' ,q];
+% end
+% 
+% dlmwrite('LinearSLAM_traj_2808_09.txt',LinearSLAM_traj,'delimiter',' ')
+% dlmwrite('rpg_LinearSLAM_traj_09.txt',rpg_LinearSLAM_traj,'delimiter',' ')
 
