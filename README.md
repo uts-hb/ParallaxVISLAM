@@ -14,7 +14,7 @@ To run Parallax VI-SLAM, **'PBAwIMU_LocalMap_main.m '** can be executed to build
 
 Linear Map Joining can be executed with **"Main.m"** in LinearSLAM folder.      
 
-It can be plotted using rpg_trajectory_evaluation (https://github.com/uzh-rpg/rpg_trajectory_evaluation) [4].
+It can be plotted using rpg_trajectory_evaluation (https://github.com/uzh-rpg/rpg_trajectory_evaluation) with Ground-Truth (stamped_groundtruth.txt) [4].
                                 
 ----         
 ### References
