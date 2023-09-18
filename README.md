@@ -11,8 +11,10 @@ Our proposed Parallax Visual-Inertial SLAM and linear submap joining algorithms 
 ----
 
 To run Parallax VI-SLAM, **'PBAwIMU_LocalMap_main.m '** can be executed to build full-batch or local map. 
+Dataset ('KITTI-06', 'KITTI-07', 'KITTI-09') and Start and End states can be decided.  
 
 Linear Map Joining can be executed with **"Main.m"** in LinearSLAM folder.      
+Dataset ('KITTI-06', 'KITTI-07', 'KITTI-09') with different number of local map can be choosen. 
 
 It can be plotted using rpg_trajectory_evaluation (https://github.com/uzh-rpg/rpg_trajectory_evaluation) with Ground-Truth (stamped_groundtruth.txt) [4].
                                 
