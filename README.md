@@ -1,20 +1,22 @@
-# ParallaxBA
+# Parallax VI-SLAM
 
-This is the MATLAB code comparing Standard Bundle Adjustment(SBA) and Parallax Bundle Adjustment(PBA) for our paper **"Comparison Between MATLAB Bundle Adjustment Function and Parallax Bundle Adjustment".**
+This is the MATLAB code for our paper **"Parallax Visual-Inertial SLAM: Parallax Bundle Adjustment with IMU and Linear Submap Joining".**
 
-SBA MATLAB function from the Computer Vision toolbox is used, and PBA MATLAB is implemented by ourselves. 
-For the comparison between the two BA methods, the "MALAGA PARKING-6L" [1] and "Starry Night" [2] datasets are used.
+This paper first proposes a new method for Visual-Inertial SLAM. It uses a parallax angle for feature parametrization [1], and the feature observation and the preintegrated IMU information are used together to formulate a nonlinear least squares problem.
 
-To compare two BA with "MALAGA PARKING-6L" and "Starry Night" datasets in MATLAB, **'Malaga_BundleAdjustment.m'** and **'Starry_BundleAdjustment.m'** can be executed, respectively.
+In addition, it proposes a linear submap joining method using the Linear SLAM framework [2], where the local submaps are built using the Parallax Visual-Inertial SLAM. Then, these submaps are joined together through linear least squares and nonlinear coordinate transformations.
 
-Visual-Inertial SLAM can be executed with **"BAwIMU.m"**, which use "Starry Night" dataset.   
+Our proposed Parallax Visual-Inertial SLAM and linear submap joining algorithms are evaluated using multiple KITTI [3] datasets, demonstrating nice convergence, robustness and high accuracy.
 
-In the case of the "Starry Might" dataset, the type of data can be changed between the data with 40, 80, 100, and 500 features. The type of initial value and the number of images also can be chosen to run MATLAB with different initial inputs. 
-   
-                
+----
+
+To run Parallax VI-SLAM, **'PBAwIMU_LocalMap_main.m '** can be executed to build full-batch or local map. 
+
+Linear Map Joining can be executed with **"Main.m"** in LinearSLAM folder.                   
                                 
 ----         
 ### References
-1. L. Zhao, S. Huang, L. Yan, J. J. Wang, G. Hu, and G. Dissanayake, “Large-scale monocular SLAM by local bundle adjustment and map joining”, in 2010 11th International Conference on Control Automation Robotics Vision, 7-10 Dec. 2010 2010, pp. 431-436, doi: 10.1109/ICARCV.2010.5707820.
-2. L. E. Clement, V. Peretroukhin, J. Lambert, and J. Kelly, “The Battle for Filter Supremacy: A Comparative Study of the Multi-State Constraint Kalman Filter and the Sliding Window Filter”, 2015 12th Conference on Computer and Robot Vision, 3-5 June 2015, pp. 23-30, doi: 10.1109/CRV.2015.11.               
+1. L. Zhao, S. Huang, Y. Sun, L. Yan, and G. Dissanayake, “ParallaxBA:Bundle adjustment using parallax angle feature parametrization,” International Journal of Robotics Research, vol. 34, no. 4-5, pp. 493–516, 4 2015
+2. L. Zhao, S. Huang, and G. Dissanayake, “Linear SLAM: Linearising the SLAM Problems using Submap Joining,” Automatica, vol. 100, pp.231–246, 9 2018. [Online]. Available: http://arxiv.org/abs/1809.06967
+3.  A. Geiger, P. Lenz, C. Stiller, and R. Urtasun, “Vision meets robotics: The kitti dataset,” The International Journal of Robotics Research, vol. 32, no. 11, pp. 1231–1237, 2013.
 ----
