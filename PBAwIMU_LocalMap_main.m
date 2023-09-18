@@ -76,6 +76,7 @@ pos_initial = PVector.Pos;
 plot3(pos_initial(1,:),pos_initial(2,:),pos_initial(3,:),'--g');
 hold on; 
 
+%% Pre-integrated IMU for new Local Map
 pre = {};
 for i = start_ImageNum : end_ImageNum-1
     pre{end+1} = pre_imu{1,i};
