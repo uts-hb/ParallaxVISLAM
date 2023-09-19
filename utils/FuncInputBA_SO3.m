@@ -1,6 +1,6 @@
  function feat_pos = FuncInputBA_SO3(PVector,Feature)
 
- load extrinsic_kitti_0504.mat
+ load extrinsic_kitti.mat
 
 % Data.xyzpoints
 % Pose = reshape(PVector.Pose,6,[])';
