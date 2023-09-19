@@ -6,7 +6,7 @@ close all;clc;clear;
 addpath('utils');
 
 %% Load extrinsic and intrinsic matrix of KITTI dataset 
-load extinsic_kitti.mat;
+load extrinsic_kitti.mat;
 K = textread('calSBA_kitti.txt');
 
 %% Load preintegrated-IMU data 
@@ -16,7 +16,7 @@ Dataset = 'KITTI_07';  % 1~412
 
 %% Number of Images 
 start_ImageNum = 1; 
-end_ImageNum = 50; 
+end_ImageNum = 412; 
 
 %%
 switch Dataset;
