@@ -101,11 +101,11 @@ file = strcat(Dataset,'_',int2str(start_ImageNum),'_',int2str(end_ImageNum));
 diary(file);
 tic;
 %% Least Squares GN 
-% [PVector,Feature_BA,Reason,Info,objFun,errorSBA,errorIMU] = FuncLeastSquares_w_IMU(uv,PVector,Feature_BA,K,CAM_2_IMU,pre);
+% [PVector,Feature_BA,Reason,Info,objFun,errorSBA,errorIMU] = FuncLeastSquares_w_IMU(uv,PVector,Feature_BA,K,CAM_2_IMU,pre,Dataset);
 % diary off;
 
 %% Levenberg-Marquardt Iteration SBA
-    [PVector,Feature_BA,Reason,Info,objFun,errorSBA,errorIMU] = FuncLeastSquaresLMSBA_w_imu(uv,PVector,Feature_BA,K,CAM_2_IMU,pre);
+    [PVector,Feature_BA,Reason,Info,objFun,errorSBA,errorIMU] = FuncLeastSquaresLMSBA_w_imu(uv,PVector,Feature_BA,K,CAM_2_IMU,pre,Dataset);
     toc
     diary off;
 
@@ -139,7 +139,5 @@ fprintf('Reason is %d\n', Reason);
 PVector.ID = Feature(:,1:4);
 PVector.Info = Info;
 
-
-file = strcat('local_map_',int2str(start_ImageNum),'_',int2str(end_ImageNum));
 save(file);
 
