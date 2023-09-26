@@ -49,7 +49,7 @@ switch Dataset;
     case 'KITTI_07';
         VAL = [val_BA, 150*val_IMU, 150*val_B]; % Best for dataset 07
     case 'KITTI_09';
-        VAL = [val_BA, 50*val_IMU, 50*val_B]; % best for dataset 09 
+        VAL = [val_BA, 60*val_IMU, 60*val_B]; % best for dataset 09 
 end 
 
 W = sparse(W_ID1,W_ID2,VAL);
