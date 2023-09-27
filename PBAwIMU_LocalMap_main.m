@@ -9,7 +9,7 @@ addpath('utils');
 load extrinsic_kitti.mat;
 K = textread('calSBA_kitti.txt');
 
-%% Load preintegrated-IMU data 
+%% Load KITTI Dataset 
 % Dataset = 'KITTI_06'; % 1~412
 Dataset = 'KITTI_07';  % 1~412
 % Dataset = 'KITTI_09'; % 1~677
@@ -18,11 +18,11 @@ Dataset = 'KITTI_07';  % 1~412
 start_ImageNum = 1; 
 end_ImageNum = 412; 
 
-%%
+%% 
 switch Dataset;
     case 'KITTI_06';
-        load imu_pre_06.mat 
-        load trajectory_06.mat
+        load imu_pre_06.mat % pre-integrated IMU 
+        load trajectory_06.mat % Dead-Reckoning trajectory
     case 'KITTI_07';
         load imu_pre_07.mat
         load trajectory_07.mat
@@ -54,7 +54,7 @@ for i=start_ImageNum:end_ImageNum;
 	load(file);
 	fprintf('%s\n', file);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-    %% Transforming the start point using the GT 
+    %% Transforming the start point using the GT (Aligning Only the first pose) 
     Image_T = [eul2rotm(Image(1,1:3)),Image(1,4:6)'; 0 0 0 1]; 
     Image_T = GT_T_start*inv(Image_T_start)*Image_T;
     Image(1,1:3) = rotm2eul(Image_T(1:3,1:3));
@@ -84,7 +84,6 @@ end
 
 file = strcat(Dataset,'_',int2str(start_ImageNum),'_',int2str(end_ImageNum));
 diary(file);
-
 %% Least Squares GN
 tic
 [PVector,Reason,Info,objFun,errorPBA,errorIMU] = FuncLeastSquares_w_IMU(xVector,PVector,Feature,K,CAM_2_IMU,pre,Dataset);
