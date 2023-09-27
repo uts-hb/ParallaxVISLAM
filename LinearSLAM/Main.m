@@ -13,9 +13,8 @@ DataType = '3D Pose Feature';
 % DataType = '2D Pose Graph';
 % DataType = '3D Pose Graph';
 
-    %% 3D Pose Feature Datasets 
-
-    %% KITTT Dataset Sequence 06, 07, 08 with differenent number of Local Map  
+%% 3D Pose Feature Datasets
+%% KITTT Dataset Sequence 06, 07, 08 with differenent number of Local Map
 Dataset = '06_2';
 % Dataset = '06_4';
 % Dataset = '06_6';
@@ -73,17 +72,17 @@ switch Dataset;
         Direction = '09_6/';
     case '09_8';
         LocalMapNum = 8;
-        Direction = '09_8/';        
+        Direction = '09_8/';
 end;
 
 %% Load Files
 for i=1:LocalMapNum;
-    file=strcat(Direction,'localmap_',int2str(i)); 
-	LM{i} = load(file);
+    file=strcat(Direction,'localmap_',int2str(i));
+    LM{i} = load(file);
 end;
 
 %% Linear Map Joining
-diary time; 
+diary time;
 tic;
 
 switch Method;
@@ -144,7 +143,7 @@ end;
 %     LinearSLAM_traj = [LinearSLAM_traj;vector];
 %     rpg_LinearSLAM_traj = [rpg_LinearSLAM_traj;time_image(i,1),t_' ,q];
 % end
-% 
+%
 % dlmwrite('LinearSLAM_traj_2808_09.txt',LinearSLAM_traj,'delimiter',' ')
 % dlmwrite('rpg_LinearSLAM_traj_09.txt',rpg_LinearSLAM_traj,'delimiter',' ')
 
