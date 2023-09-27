@@ -94,7 +94,7 @@ diary off;
 % diary off;
 
 %% Changing from IMU to CAM frame to outfile txt for using evo_traj
-% PVector_cam_optimal = pose_imu2cam(PVector);
+% PVector_cam_optimal = pose_imu2cam(PVector);  %% Changing IMU frame to Camera frame 
 % pos_cam_optimal = PVector_cam_optimal.Pos;
 % PBA_so3_traj = [];
 % switch Dataset;
