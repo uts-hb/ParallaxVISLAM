@@ -44,11 +44,11 @@ W_ID1 = [W_BA_ID1, W_IMU_ID1, W_B_ID1];
 W_ID2 = [W_BA_ID2, W_IMU_ID2, W_B_ID2];
 
 switch Dataset;
-    case 'KITTI_06';
+    case {'KITTI_06','KITTI_06_vo'};
         VAL = [val_BA, 10*val_IMU, 10*val_B]; % Best for dataset 06
-    case 'KITTI_07';
+    case {'KITTI_07','KITTI_07_vo'};
         VAL = [val_BA, 150*val_IMU, 150*val_B]; % Best for dataset 07
-    case 'KITTI_09';
+    case {'KITTI_09','KITTI_09_vo'};
         VAL = [val_BA, 60*val_IMU, 60*val_B]; % best for dataset 09 
 end 
 

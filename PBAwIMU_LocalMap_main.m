@@ -10,9 +10,13 @@ load extrinsic_kitti.mat;
 K = textread('calSBA_kitti.txt');
 
 %% Load KITTI Dataset 
-% Dataset = 'KITTI_06'; % 1~412
-Dataset = 'KITTI_07';  % 1~412
+% Dataset = 'KITTI_06'; % 1~412, Initial start with trajectory from ORB-SLAM and corrected-scale with IMU 
+Dataset = 'KITTI_07';  % 1~412 
 % Dataset = 'KITTI_09'; % 1~677
+% Dataset = 'KITTI_06_vo'; % Initial start with Visual-Odometry 
+% Dataset = 'KITTI_07_vo'; 
+% Dataset = 'KITTI_09_vo'; 
+
 
 %% Number of Images 
 start_ImageNum = 1; 
@@ -20,13 +24,13 @@ end_ImageNum = 412;
 
 %% 
 switch Dataset;
-    case 'KITTI_06';
+    case {'KITTI_06','KITTI_06_vo'};
         load imu_pre_06.mat % pre-integrated IMU 
         load trajectory_06.mat % Dead-Reckoning trajectory
-    case 'KITTI_07';
+    case {'KITTI_07','KITTI_07_vo'};
         load imu_pre_07.mat
         load trajectory_07.mat
-    case 'KITTI_09';
+    case {'KITTI_09','KITTI_09_vo'};
         load imu_pre_09.mat
         load trajectory_09.mat
 end 
